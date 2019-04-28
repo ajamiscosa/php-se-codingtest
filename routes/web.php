@@ -22,11 +22,11 @@ Route::get('/webhook/done', function(Request $request){
 
 Route::post('/webhook/done', function(Request $request){
     if($request->action['data']['listAfter']['name']=='Done') {
-        $doneList = "5cc2d3a575581b10e34bb9a4";
-        $doingList = "5cc2d3a575581b10e34bb9a3";
-        $boardId = "5cc2d3a575581b10e34bb9a1";
-        $key = "8fcba441e3a5ad8120bb895853d73ff1";
-        $token = "140d7ab96e3ae835e1192ca7c7afc61a5393a971eda51367a0af42889858e317";
+        $doneList = env('TRELLO_LIST_SOURCE');
+        $doingList = env('TRELLO_LIST_DESTINATION');
+        $boardId = env('TRELLO_BOARD_ID');
+        $key = env('TRELLO_API_KEY');
+        $token = env('TRELLO_TOKEN');
         $url = "https://api.trello.com/1/lists/%s/moveAllCards?idBoard=%s&idList=%s&key=%s&token=%s";
 
 
